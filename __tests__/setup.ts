@@ -1,0 +1,16 @@
+// Jest setup file
+import { jest } from '@jest/globals';
+
+// Mock console methods to reduce noise during tests
+global.console = {
+  ...console,
+  // Uncomment to ignore specific console methods during tests
+  // log: jest.fn(),
+  // debug: jest.fn(),
+  // info: jest.fn(),
+  // warn: jest.fn(),
+  // error: jest.fn(),
+};
+
+// Set test timeout
+jest.setTimeout(10000);
