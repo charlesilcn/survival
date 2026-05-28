@@ -1,5 +1,7 @@
 # 物竞天择 / Survival
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 [![npm version](https://badge.fury.io/js/@wujingtianze%2Fcore.svg)](https://www.npmjs.com/package/@wujingtianze/core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
@@ -297,111 +299,34 @@ evolution compare --configs config-a.json config-b.json --task task.json
 
 ## 架构
 
-<p align="center">
-  <svg width="700" height="500" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="headerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#4a90d9;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#357abd;stop-opacity:1" />
-      </linearGradient>
-      <linearGradient id="coreGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#5cb85c;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#4cae4c;stop-opacity:1" />
-      </linearGradient>
-      <linearGradient id="moduleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#f0ad4e;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#ec971f;stop-opacity:1" />
-      </linearGradient>
-      <linearGradient id="strategyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#d9534f;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#c9302c;stop-opacity:1" />
-      </linearGradient>
-      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
-      </filter>
-    </defs>
+```mermaid
+graph TB
+    User([用户]) -->|任务| API[EvolutionSystem<br/>静态 API]
+    API -->|初始化| Engine[EvolutionEngine<br/>核心循环]
     
-    <!-- EvolutionSystem -->
-    <rect x="200" y="10" width="300" height="60" rx="8" fill="url(#headerGrad)" filter="url(#shadow)"/>
-    <text x="350" y="35" text-anchor="middle" fill="white" font-size="16" font-weight="bold">EvolutionSystem</text>
-    <text x="350" y="55" text-anchor="middle" fill="white" font-size="11">静态 API - quick / standard / deep / team</text>
+    Engine -->|管理| AM[智能体管理器<br/>AgentManager]
+    Engine -->|分发| TD[任务分发器<br/>TaskDistributor]
+    Engine -->|评估| EV[评估器<br/>Evaluator]
+    Engine -->|生成| RG[报告生成器<br/>ReportGenerator]
+    Engine -->|恢复| FT[容错管理器<br/>FaultTolerance]
     
-    <!-- Arrow down -->
-    <line x1="350" y1="70" x2="350" y2="90" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <defs>
-      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
-      </marker>
-    </defs>
+    AM -->|执行| ES[执行策略<br/>ExecutionStrategy]
+    EV -->|执行| ES
     
-    <!-- EvolutionEngine -->
-    <rect x="150" y="95" width="400" height="70" rx="8" fill="url(#coreGrad)" filter="url(#shadow)"/>
-    <text x="350" y="125" text-anchor="middle" fill="white" font-size="16" font-weight="bold">EvolutionEngine</text>
-    <text x="350" y="145" text-anchor="middle" fill="white" font-size="11">核心进化循环，集成 PluginManager</text>
+    ES -->|默认| SE[模拟执行<br/>SimulatedExecution]
+    ES -->|生产| LE[实时执行<br/>LiveExecution]
     
-    <!-- Arrows to modules -->
-    <line x1="200" y1="165" x2="100" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="267" y1="165" x2="220" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="350" y1="165" x2="350" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="433" y1="165" x2="480" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="500" y1="165" x2="600" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    
-    <!-- Module boxes -->
-    <rect x="30" y="205" width="110" height="50" rx="6" fill="url(#moduleGrad)" filter="url(#shadow)"/>
-    <text x="85" y="228" text-anchor="middle" fill="white" font-size="12" font-weight="bold">智能体管理器</text>
-    <text x="85" y="245" text-anchor="middle" fill="white" font-size="9">AgentManager</text>
-    
-    <rect x="165" y="205" width="110" height="50" rx="6" fill="url(#moduleGrad)" filter="url(#shadow)"/>
-    <text x="220" y="228" text-anchor="middle" fill="white" font-size="12" font-weight="bold">任务分发器</text>
-    <text x="220" y="245" text-anchor="middle" fill="white" font-size="9">TaskDistributor</text>
-    
-    <rect x="295" y="205" width="110" height="50" rx="6" fill="url(#moduleGrad)" filter="url(#shadow)"/>
-    <text x="350" y="228" text-anchor="middle" fill="white" font-size="12" font-weight="bold">评估器</text>
-    <text x="350" y="245" text-anchor="middle" fill="white" font-size="9">Evaluator</text>
-    
-    <rect x="425" y="205" width="110" height="50" rx="6" fill="url(#moduleGrad)" filter="url(#shadow)"/>
-    <text x="480" y="228" text-anchor="middle" fill="white" font-size="12" font-weight="bold">报告生成器</text>
-    <text x="480" y="245" text-anchor="middle" fill="white" font-size="9">ReportGenerator</text>
-    
-    <rect x="555" y="205" width="110" height="50" rx="6" fill="url(#moduleGrad)" filter="url(#shadow)"/>
-    <text x="610" y="228" text-anchor="middle" fill="white" font-size="12" font-weight="bold">容错管理器</text>
-    <text x="610" y="245" text-anchor="middle" fill="white" font-size="9">FaultTolerance</text>
-    
-    <!-- Arrows to ExecutionStrategy -->
-    <line x1="85" y1="255" x2="200" y2="310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="350" y1="255" x2="350" y2="310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    
-    <!-- ExecutionStrategy -->
-    <rect x="100" y="315" width="500" height="80" rx="8" fill="url(#strategyGrad)" filter="url(#shadow)"/>
-    <text x="350" y="340" text-anchor="middle" fill="white" font-size="14" font-weight="bold">ExecutionStrategy</text>
-    
-    <!-- Sub-strategies -->
-    <rect x="140" y="355" width="160" height="30" rx="4" fill="white" fill-opacity="0.9"/>
-    <text x="220" y="375" text-anchor="middle" fill="#333" font-size="11">SimulatedExecution</text>
-    
-    <rect x="400" y="355" width="160" height="30" rx="4" fill="white" fill-opacity="0.9"/>
-    <text x="480" y="375" text-anchor="middle" fill="#333" font-size="11">LiveExecution</text>
-    
-    <!-- Legend -->
-    <rect x="30" y="420" width="640" height="70" rx="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
-    <text x="350" y="440" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">图例说明</text>
-    
-    <rect x="50" y="455" width="15" height="15" rx="3" fill="url(#headerGrad)"/>
-    <text x="75" y="467" fill="#666" font-size="10">系统入口</text>
-    
-    <rect x="150" y="455" width="15" height="15" rx="3" fill="url(#coreGrad)"/>
-    <text x="175" y="467" fill="#666" font-size="10">核心引擎</text>
-    
-    <rect x="250" y="455" width="15" height="15" rx="3" fill="url(#moduleGrad)"/>
-    <text x="275" y="467" fill="#666" font-size="10">功能模块</text>
-    
-    <rect x="350" y="455" width="15" height="15" rx="3" fill="url(#strategyGrad)"/>
-    <text x="375" y="467" fill="#666" font-size="10">执行策略</text>
-    
-    <text x="50" y="485" fill="#666" font-size="9">• 模拟执行：快速测试，默认模式</text>
-    <text x="350" y="485" fill="#666" font-size="9">• 实时执行：OpenAI/自定义 AI 执行器</text>
-  </svg>
-</p>
+    style API fill:#4a90d9,stroke:#333,stroke-width:2px,color:#fff
+    style Engine fill:#5cb85c,stroke:#333,stroke-width:2px,color:#fff
+    style AM fill:#f0ad4e,stroke:#333,stroke-width:2px,color:#fff
+    style TD fill:#f0ad4e,stroke:#333,stroke-width:2px,color:#fff
+    style EV fill:#f0ad4e,stroke:#333,stroke-width:2px,color:#fff
+    style RG fill:#f0ad4e,stroke:#333,stroke-width:2px,color:#fff
+    style FT fill:#f0ad4e,stroke:#333,stroke-width:2px,color:#fff
+    style ES fill:#d9534f,stroke:#333,stroke-width:2px,color:#fff
+    style SE fill:#fff,stroke:#333,stroke-width:2px
+    style LE fill:#fff,stroke:#333,stroke-width:2px
+```
 
 ## 模块
 
