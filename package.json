@@ -34,12 +34,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wujingtianze/survival.git"
+    "url": "https://github.com/charlesilcn/survival.git"
   },
   "bugs": {
-    "url": "https://github.com/wujingtianze/survival/issues"
+    "url": "https://github.com/charlesilcn/survival/issues"
   },
-  "homepage": "https://github.com/wujingtianze/survival#readme",
+  "homepage": "https://github.com/charlesilcn/survival#readme",
   "dependencies": {
     "uuid": "^9.0.0",
     "winston": "^3.11.0",

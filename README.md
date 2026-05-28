@@ -444,7 +444,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development Setup
 
 ```bash
-git clone https://github.com/wujingtianze/survival.git
+git clone https://github.com/charlesilcn/survival.git
 cd survival
 npm install
 npm run build

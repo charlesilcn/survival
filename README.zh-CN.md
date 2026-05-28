@@ -444,7 +444,7 @@ evolution compare --configs config-a.json config-b.json --task task.json
 ### 开发环境搭建
 
 ```bash
-git clone https://github.com/wujingtianze/survival.git
+git clone https://github.com/charlesilcn/survival.git
 cd survival
 npm install
 npm run build
