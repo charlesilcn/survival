@@ -62,7 +62,7 @@ if (!isTest) {
 // Create the logger
 export const logger = winston.createLogger({
   level: logLevel,
-  defaultMeta: { service: 'evolution-system' },
+  defaultMeta: { service: 'wujingtianze' },
   format: combine(
     timestamp({ format: 'ISO8601' }),
     errors({ stack: true }),

@@ -1,15 +1,15 @@
-# @evolution-system/core
+# 物竞天择 (Wùjìng Tiānzé) / Survival
 
-[![npm version](https://badge.fury.io/js/@evolution-system%2Fcore.svg)](https://www.npmjs.com/package/@evolution-system/core)
+[![npm version](https://badge.fury.io/js/@wujingtianze%2Fcore.svg)](https://www.npmjs.com/package/@wujingtianze/core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-brightgreen.svg)](https://nodejs.org/)
 
-> A powerful multi-agent competitive evolution system based on natural selection principles.
+> **物竞天择，适者生存** — A powerful multi-agent competitive evolution system based on natural selection principles.
 
 ## Overview
 
-The Evolution System implements a **generational multi-agent optimization framework** where multiple AI agents compete on tasks, progressively filtering out underperforming agents while survivors learn from eliminated agents through genetic recombination and mutation. This approach mimics natural selection to continuously evolve and produce optimal solutions.
+**物竞天择** (Wùjìng Tiānzé, meaning "Survival of the Fittest") implements a **generational multi-agent optimization framework** where multiple AI agents compete on tasks, progressively filtering out underperforming agents while survivors learn from eliminated agents through genetic recombination and mutation. This approach mimics natural selection to continuously evolve and produce optimal solutions.
 
 ### Key Features
 
@@ -25,7 +25,7 @@ The Evolution System implements a **generational multi-agent optimization framew
 ## Installation
 
 ```bash
-npm install @evolution-system/core
+npm install @wujingtianze/core
 ```
 
 ### Prerequisites
@@ -36,7 +36,7 @@ npm install @evolution-system/core
 ## Quick Start
 
 ```typescript
-import { EvolutionSystem } from '@evolution-system/core';
+import { EvolutionSystem } from '@wujingtianze/core';
 
 const task = {
   id: 'sort-algo-task',
@@ -102,7 +102,7 @@ The system supports two execution modes:
 - **Live Execution**: Real AI execution via OpenAI or custom executors
 
 ```typescript
-import { EvolutionEngine, OpenAIExecutor, LiveExecution } from '@evolution-system/core';
+import { EvolutionEngine, OpenAIExecutor, LiveExecution } from '@wujingtianze/core';
 
 // Live execution with OpenAI
 const executor = new OpenAIExecutor({ 
@@ -119,7 +119,7 @@ const report = await engine.run(task);
 ### Plugin System
 
 ```typescript
-import { EvolutionEngine, PluginManager, BasePlugin } from '@evolution-system/core';
+import { EvolutionEngine, PluginManager, BasePlugin } from '@wujingtianze/core';
 
 class PerformanceTracker extends BasePlugin {
   name = 'performance-tracker';
@@ -143,7 +143,7 @@ const engine = new EvolutionEngine(config, pluginManager);
 ### Custom Metrics
 
 ```typescript
-import { Evaluator } from '@evolution-system/core';
+import { Evaluator } from '@wujingtianze/core';
 
 const evaluator = new Evaluator(config);
 evaluator.registerMetric('maintainability', (agent, task, context) => {
@@ -200,7 +200,7 @@ agentManager.resurrectAgent('agent-007');
 ### Multiple Formats
 
 ```typescript
-import { ReportExporter, ChartGenerator } from '@evolution-system/core';
+import { ReportExporter, ChartGenerator } from '@wujingtianze/core';
 
 // JSON
 const json = ReportExporter.toJSON(report, { pretty: true });
@@ -222,7 +222,7 @@ const files = ReportExporter.exportAll(report, './output');
 ### Visualization
 
 ```typescript
-import { ChartGenerator } from '@evolution-system/core';
+import { ChartGenerator } from '@wujingtianze/core';
 
 // Performance over time
 const perfChart = ChartGenerator.generatePerformanceChart(report);
@@ -261,7 +261,7 @@ interface EvolutionConfig {
 ### Config Validation
 
 ```typescript
-import { ConfigValidator } from '@evolution-system/core';
+import { ConfigValidator } from '@wujingtianze/core';
 
 const { config, warnings } = ConfigValidator.validateWithWarnings({
   agentCount: 15,
@@ -277,7 +277,7 @@ if (warnings.length > 0) {
 
 ```bash
 # Install globally
-npm install -g @evolution-system/core
+npm install -g @wujingtianze/core
 
 # Run evolution
 evolution run --config ./config.json --task ./task.json --output ./reports
@@ -444,8 +444,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development Setup
 
 ```bash
-git clone https://github.com/evolution-system/evolution-system.git
-cd evolution-system
+git clone https://github.com/wujingtianze/survival.git
+cd survival
 npm install
 npm run build
 npm test

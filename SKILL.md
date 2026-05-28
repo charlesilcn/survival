@@ -1,11 +1,15 @@
 ---
-name: "evolution"
-description: "Multi-agent competitive evolution system based on natural selection. Launches multiple agents to compete on tasks through generational evolution, progressively selecting the best while survivors learn from eliminated agents. Invoke when user wants competitive multi-agent optimization, iterative agent selection, or evolutionary problem solving."
+name: "survival"
+description: "物竞天择 (Wujing Tianze) - Multi-agent competitive evolution system based on natural selection. Launches multiple agents to compete on tasks through generational evolution, progressively selecting the best while survivors learn from eliminated agents. Invoke when user wants competitive multi-agent optimization, iterative agent selection, or evolutionary problem solving."
 ---
 
-# Multi-Agent Competitive Evolution System
+# 物竞天择 (Wùjìng Tiānzé) / Survival
 
-Based on the "Competitive Evolution" philosophy: natural selection, survival of the fittest. Multiple agents execute tasks simultaneously, progressively filtering out underperforming agents. Other agents learn from eliminated agents through genetic recombination and mutation, continuously evolving to produce optimal solutions.
+> **物竞天择，适者生存** — Based on the philosophy of natural selection and survival of the fittest.
+
+Multiple agents execute tasks simultaneously, progressively filtering out underperforming agents. Other agents learn from eliminated agents through genetic recombination and mutation, continuously evolving to produce optimal solutions.
+
+The name "物竞天择" (Wujing Tianze) originates from Yan Fu's translation of Huxley's "Evolution and Ethics": "物竞天择，适者生存" (Survival of the Fittest).
 
 ## When to Use
 
@@ -18,7 +22,7 @@ Based on the "Competitive Evolution" philosophy: natural selection, survival of 
 ## Quick Start
 
 ```typescript
-import { EvolutionSystem } from '@evolution-system/core';
+import { EvolutionSystem } from '@wujingtianze/core';
 
 const task = {
   id: 'sort-algorithm-task',
@@ -83,7 +87,7 @@ Supports misjudgment recovery (resurrecting high-potential agents that were mist
 
 ### Custom Evaluation Metrics
 ```typescript
-import { Evaluator } from '@evolution-system/core';
+import { Evaluator } from '@wujingtianze/core';
 
 const evaluator = new Evaluator(config);
 evaluator.registerMetric('maintainability', (agent, task, ctx) => {
@@ -186,5 +190,5 @@ openclaw install evolution
 
 ### Node.js Standalone
 ```bash
-npm install @evolution-system/core
+npm install @wujingtianze/core
 ```

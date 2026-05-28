@@ -11,8 +11,9 @@ import { Task, EvolutionConfig } from '../types';
 const program = new Command();
 
 program
-  .name('evolution')
-  .description('Evolution System CLI - Multi-agent competitive evolution')
+  .name('survival')
+  .alias('wjtz')
+  .description('物竞天择 (Wujing Tianze) CLI - Multi-agent competitive evolution')
   .version('1.0.0');
 
 program
