@@ -1,17 +1,15 @@
-# 物竞天择 (Wùjìng Tiānzé) / Survival
+# 物竞天择 / Survival
 
 [![npm version](https://badge.fury.io/js/@wujingtianze%2Fcore.svg)](https://www.npmjs.com/package/@wujingtianze/core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-brightgreen.svg)](https://nodejs.org/)
 
-> **物竞天择，适者生存** — 基于自然选择原理的强大多智能体竞优进化系统
+> 基于自然选择原理的强大多智能体竞优进化系统
 
 ## 项目概述
 
-**物竞天择**（Wùjìng Tiānzé，意为"Survival of the Fittest"）实现了一个**世代多智能体优化框架**，多个 AI 智能体在任务上竞争，逐步筛选表现不佳的智能体，同时幸存者通过基因重组和变异从被淘汰的智能体中学习。这种方法模拟自然选择，持续进化并产生最优解决方案。
-
-> 名称源自严复译《天演论》："物竞天择，适者生存"
+物竞天择 / Survival 实现了一个**世代多智能体优化框架**，多个 AI 智能体在任务上竞争，逐步筛选表现不佳的智能体，同时幸存者通过基因重组和变异从被淘汰的智能体中学习。这种方法模拟自然选择，持续进化并产生最优解决方案。
 
 ### 核心特性
 

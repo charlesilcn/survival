@@ -1,7 +1,7 @@
 {
   "name": "@wujingtianze/core",
   "version": "1.0.0",
-  "description": "物竞天择 - A powerful multi-agent competitive evolution system based on natural selection (Survival of the Fittest)",
+  "description": "物竞天择 / Survival",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -29,12 +29,8 @@
     "ai",
     "machine-learning",
     "competitive-evolution",
-    "natural-selection",
-    "物竞天择",
-    "survival",
-    "适者生存"
+    "natural-selection"
   ],
-  "author": "物竞天择团队 (Wujing Tianze Team) <team@wujingtianze.dev>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -56,8 +52,7 @@
     "commander": "^11.1.0"
   },
   "bin": {
-    "survival": "./dist/cli/index.js",
-    "wjtz": "./dist/cli/index.js"
+    "survival": "./dist/cli/index.js"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

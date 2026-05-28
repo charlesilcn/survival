@@ -1,15 +1,11 @@
 ---
 name: "survival"
-description: "物竞天择 (Wujing Tianze) - Multi-agent competitive evolution system based on natural selection. Launches multiple agents to compete on tasks through generational evolution, progressively selecting the best while survivors learn from eliminated agents. Invoke when user wants competitive multi-agent optimization, iterative agent selection, or evolutionary problem solving."
+description: "Multi-agent competitive evolution system based on natural selection. Launches multiple agents to compete on tasks through generational evolution, progressively selecting the best while survivors learn from eliminated agents. Invoke when user wants competitive multi-agent optimization, iterative agent selection, or evolutionary problem solving."
 ---
 
-# 物竞天择 (Wùjìng Tiānzé) / Survival
-
-> **物竞天择，适者生存** — Based on the philosophy of natural selection and survival of the fittest.
+# 物竞天择 / Survival
 
 Multiple agents execute tasks simultaneously, progressively filtering out underperforming agents. Other agents learn from eliminated agents through genetic recombination and mutation, continuously evolving to produce optimal solutions.
-
-The name "物竞天择" (Wujing Tianze) originates from Yan Fu's translation of Huxley's "Evolution and Ethics": "物竞天择，适者生存" (Survival of the Fittest).
 
 ## When to Use
 

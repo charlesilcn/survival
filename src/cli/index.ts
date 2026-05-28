@@ -12,8 +12,7 @@ const program = new Command();
 
 program
   .name('survival')
-  .alias('wjtz')
-  .description('物竞天择 (Wujing Tianze) CLI - Multi-agent competitive evolution')
+  .description('Multi-agent competitive evolution')
   .version('1.0.0');
 
 program

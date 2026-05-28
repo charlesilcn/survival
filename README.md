@@ -1,15 +1,15 @@
-# 物竞天择 (Wùjìng Tiānzé) / Survival
+# 物竞天择 / Survival
 
 [![npm version](https://badge.fury.io/js/@wujingtianze%2Fcore.svg)](https://www.npmjs.com/package/@wujingtianze/core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-brightgreen.svg)](https://nodejs.org/)
 
-> **物竞天择，适者生存** — A powerful multi-agent competitive evolution system based on natural selection principles.
+> A powerful multi-agent competitive evolution system based on natural selection principles.
 
 ## Overview
 
-**物竞天择** (Wùjìng Tiānzé, meaning "Survival of the Fittest") implements a **generational multi-agent optimization framework** where multiple AI agents compete on tasks, progressively filtering out underperforming agents while survivors learn from eliminated agents through genetic recombination and mutation. This approach mimics natural selection to continuously evolve and produce optimal solutions.
+物竞天择 / Survival implements a **generational multi-agent optimization framework** where multiple AI agents compete on tasks, progressively filtering out underperforming agents while survivors learn from eliminated agents through genetic recombination and mutation. This approach mimics natural selection to continuously evolve and produce optimal solutions.
 
 ### Key Features
 
